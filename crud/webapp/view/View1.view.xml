@@ -1,0 +1,60 @@
+<mvc:View controllerName="crud.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <VBox>
+            <HBox alignItems="Center" class="sapUiSmallMarginBottom">
+                <Label text="Filter Field:" labelFor="filterField" />
+                <Input id="filterField" width="200px" placeholder="Enter field to filter by" />
+                <Label text="Filter Value:" labelFor="filterRating" />
+                <Input id="filterRating" width="200px" placeholder="Enter filter value" />
+                <Button text="Apply Filter" press="onFilter" />
+            </HBox>
+        </VBox>
+
+        <Table id="idProducts" items="{/results}">
+            <columns>
+                <Column>
+                    <HBox alignItems="Center">
+                        <Text text="ID" />
+                        <Button icon="sap-icon://sort" press="onSort('ID')" />
+                    </HBox>
+                </Column>
+                <Column>
+                    <HBox alignItems="Center">
+                        <Text text="Name" />
+                        <Button icon="sap-icon://sort" press="onSort('Name')" />
+                    </HBox>
+                </Column>
+                <Column>
+                    <HBox alignItems="Center">
+                        <Text text="Price" />
+                        <Button icon="sap-icon://sort" press="onSort('Price')" />
+                    </HBox>
+                </Column>
+                <Column>
+                    <HBox alignItems="Center">
+                        <Text text="Rating" />
+                        <Button icon="sap-icon://sort" press="onSort('Rating')" />
+                    </HBox>
+                </Column>
+                <Column width="400px">
+                    <Text text="Operations"/>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{ID}"/>
+                        <Text text="{Name}"/>
+                        <Text text="{Price}"/>
+                        <Input value="{Rating}" editable="false"/>
+                        <HBox justifyContent="Center" alignItems="Center">
+                            <Button class="sapUiSmallMarginBeginEnd" type="Accept" icon="sap-icon://edit" text="Edit" press="onEdit"/>
+                            <Button class="sapUiSmallMarginBeginEnd" type="Reject" icon="sap-icon://delete" text="Delete" press="onDelete"/>
+                            <Button class="sapUiSmallMarginBeginEnd" type="Emphasized" icon="sap-icon://copy" text="Duplicate" press="onDuplicate"/>
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
